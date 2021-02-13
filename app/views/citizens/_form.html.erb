@@ -3,14 +3,14 @@
     <%= simple_form_for @object do |f| %>
       <%= f.input :full_name, input_html: { class: 'form-control' } %>
 
-      <%= f.input :cpf, input_html: { class: 'form-control' } %>
+      <%= f.input :cpf, input_html: { class: 'form-control cpf' } %>
 
       <%= f.input :email, input_html: { class: 'form-control' } %>
 
       <%= f.input :birthdate, as: :string, input_html: { class: 'form-control datepicker',
         value: "#{ l f.object.birthdate if f.object.birthdate.present?}" } %>
 
-      <%= f.input :phone, input_html: { class: 'form-control' } %>
+      <%= f.input :phone, input_html: { class: 'form-control phone' } %>
 
       <%= f.input :status, as: :boolean, label_html: { class: 'pmd-checkbox pmd-checkbox-ripple-effect' }%>
 
