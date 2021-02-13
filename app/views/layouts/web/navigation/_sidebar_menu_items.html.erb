@@ -1,0 +1,6 @@
+<li>
+  <%= link_to citizens_path, class: 'pmd-ripple-effect', target: "" do %>
+    <i class="media-left media-middle material-icons pmd-sm">dashboard</i>
+    <span class="media-body"><%= Citizen.model_name.human(count: 2) %></span>
+  <% end %>
+</li>

@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require jquery/jquery
+//= require jquery_ujs
+//= require bootstrap/bootstrap
+//= require bootstrap/bootstrap-datepicker
+//= require bootstrap/datepicker-localize
+//= require propeller
+//= require jquery-mask/inputmask.js
+//= require jquery-mask/inputmask.date.extensions.js

@@ -1,0 +1,11 @@
+<%
+icon_only = false unless icon_only.present?
+if icon_only
+  klass = ''
+else
+  klass = "media-right media-middle"
+end
+%>
+<%= link_to link, class: "edit #{klass}", id: 'edit' do %>
+  <i class="material-icons pmd-sm">create</i>
+<% end %>

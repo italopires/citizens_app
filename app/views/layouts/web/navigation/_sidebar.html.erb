@@ -1,0 +1,19 @@
+<aside id="basicSidebar" class="pmd-sidebar  sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-open bg-fill-darkblue sidebar-with-icons" role="navigation">
+  <ul class="nav pmd-sidebar-nav">
+    <!-- User info -->
+    <li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
+      <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
+        <div class="media-left">
+          <%= image_tag("user-icon") %>
+        </div>
+        <div class="media-body media-middle"><%= current_user.email %></div>
+        <div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Sair", destroy_user_session_path %></li>
+      </ul>
+    </li><!-- End user info -->
+
+    <%= render 'layouts/web/navigation/sidebar_menu_items' %>
+  </ul>
+</aside>

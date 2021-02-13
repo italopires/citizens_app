@@ -1,0 +1,20 @@
+<%
+if defined?(button_text)
+  text = button_text
+else
+  text = t('buttons.submit.text')
+end
+%>
+<%
+if defined?(button_name)
+  bt_name = button_name
+else
+  bt_name = 'commit'
+end
+%>
+<%= button_tag type: :submit,
+               name: bt_name,
+               class: 'btn btn-primary pmd-btn-raised pmd-ripple-effect',
+               data: { disable_with: "Salvando..." } do %>
+  <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> <%= text %>
+<% end %>

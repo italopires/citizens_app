@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Login | Propeller - Admin Dashboard">
+  <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+  <title>Login | Propeller - Admin Dashboard</title>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag '' %>
+  <!-- Google icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+</head>
+
+<body class="body-custom">
+<div class="logincard">
+  <div class="pmd-card card-default pmd-z-depth">
+    <%= yield %>
+  </div>
+</div>
+
+<!-- Scripts Starts -->
+<%= javascript_include_tag 'application' %>
+
+<!-- Scripts Starts -->
+<script>
+  $(document).ready(function() {
+    var sPath=window.location.pathname;
+    var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+    $(".pmd-sidebar-nav").each(function(){
+      // $(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+      // $(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+      // $(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+      // $(this).find("a[href='"+sPage+"']").addClass("active");
+    });
+  });
+</script>
+<!-- login page sections show hide -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".login-register").click(function(){
+      $('.login-card').hide()
+      $('.register-card').show();
+    });
+
+    $(".register-login").click(function(){
+      $('.register-card').hide()
+      $('.login-card').show();
+    });
+  });
+</script>
+
+<!-- Scripts Ends -->
+</body>
+</html>

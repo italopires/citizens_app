@@ -1,0 +1,18 @@
+<%
+icon_only = false unless icon_only.present?
+remote = false unless remote.present?
+
+if icon_only
+  klass = 'remove-icon'
+else
+  klass = "media-right media-middle remove-icon"
+end
+%>
+<%= link_to link, method: :delete, remote: remote,
+            data: {
+              title: 'Excluir', confirm: t('buttons.destroy.confirm'),
+              toggle: 'tooltip', placement: "top", container: "body"
+            },
+            class: "destroy #{klass}", id: "destroy" do %>
+  <i class="material-icons pmd-sm">delete</i>
+<% end %>

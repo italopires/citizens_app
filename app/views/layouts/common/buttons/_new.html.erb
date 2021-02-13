@@ -1,0 +1,12 @@
+<%
+if defined?(button_text)
+  text = button_text
+else
+  text = t('buttons.new')
+end
+%>
+
+<%= link_to link,
+            class: "btn btn-primary pmd-ripple-effect pmd-btn-raised" do %>
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= text %>
+<% end %>
