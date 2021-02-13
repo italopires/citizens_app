@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
 
   resources :citizens, except: :show
+  root to: 'citizens#index'
 end

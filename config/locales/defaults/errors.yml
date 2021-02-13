@@ -1,0 +1,37 @@
+pt-BR:
+  errors:
+    messages:
+      accepted: deve ser aceito
+      required: não pode ficar em branco
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não confere
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      field_greater_than_or_equal_to: "%{field} deve ser maior ou igual a %{count}"
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      field_less_than_or_equal_to: "%{field} deve ser menor ou igual a %{count}"
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: 'A validação falhou: %{errors}'
+      restrict_dependent_destroy:
+        one: Não é possível excluir o registro pois existe um %{record} dependente
+        many: Não é possível excluir o registro pois existem %{record} dependentes
+      taken: já está em uso
+      too_long: 'é muito longo (máximo: %{count} caracteres)'
+      too_short: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      other_than: deve ser diferente de %{count}
+      association_should_be_uniqueness_attribute: O campo %{attribute} deve ser único!
+      should_be_strength: deve ter no mínimo 8 caracteres, com pelo menos 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial.
+      has_been_used_previously: já foi usada anteriormente.
+      greater_than_or_equal_to_current_date: deve ser maior ou igual à %{current_date}
+

@@ -1,0 +1,14 @@
+pt-BR:
+  buttons:
+    back: Voltar
+    destroy:
+      alt: Excluir
+      confirm: Você tem certeza?
+    edit:
+      alt: Alterar
+    search: Pesquisar
+    new: Adicionar
+    submit:
+      text: Salvar
+    actions: Ações
+    cancel: Cancelar

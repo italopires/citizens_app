@@ -1,0 +1,6 @@
+pt-BR:
+  notices:
+    created: "%{model} adicionado(a) com sucesso."
+    updated: "%{model} atualizado(a) com sucesso."
+    destroyed: "%{model} removido(a) com sucesso."
+    destroy_restricted: "Impossível remover %{model} com dependentes associados."

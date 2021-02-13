@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      citizen:
+        one: 'Cidadão'
+        other: 'Cidadões'
+    attributes:
+      citizen:
+        full_name: 'Nome Completo'
+        email: 'E-mail'
+        cpf: 'CPF'
+        birthdate: 'Data de Nascimento'
+        phone: 'Telefone'
+        status: 'Situação'

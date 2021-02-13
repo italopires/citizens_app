@@ -1,0 +1,47 @@
+<div class="pmd-table-card pmd-card pmd-z-depth">
+  <table id="orgs_indicators_table" class="table pmd-table table-striped">
+    <thead>
+    <tr>
+      <th><%= Citizen.human_attribute_name('full_name') %></th>
+      <th><%= Citizen.human_attribute_name('cpf') %></th>
+      <th><%= Citizen.human_attribute_name('email') %></th>
+      <th><%= Citizen.human_attribute_name('birthdate') %></th>
+      <th><%= Citizen.human_attribute_name('phone') %></th>
+      <th><%= Citizen.human_attribute_name('status') %></th>
+      <th><%= t('core.links.actions.title') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% if @objects.each do |object| %>
+      <tr>
+        <td><%= object.full_name %></td>
+        <td><%= object.cpf %></td>
+        <td><%= object.email %></td>
+        <td><%= l object.birthdate %></td>
+        <td><%= object.phone %></td>
+        <td>
+          <i class="material-icons md-dark pmd-sm" style="color: <%= object.status ? 'green' : 'red' %>">
+            check_circle
+          </i>
+        </td>
+        <td class="list-group-item">
+          <%= link_to edit_citizen_path(object),
+                      data: { "toggle": "tooltip", "container": "body", "placement": "top", "original-title": "Editar" } do %>
+            <i class="material-icons pmd-sm">create</i>
+          <% end %>
+          <%= render 'layouts/common/icon_links/destroy',
+                     link: citizen_path(object) %>
+        </td>
+      </tr>
+    <% end.empty? %>
+      <tr>
+        <td colspan=11 class='center'>
+          <h3 class="list-group-item-heading">
+            <%= t('core.empty') %>
+          </h3>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

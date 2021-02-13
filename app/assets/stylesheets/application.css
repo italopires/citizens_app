@@ -14,5 +14,6 @@
  *= require propeller
  *= require propeller-admin
  *= require propeller-theme
+ *= require_tree ./commons
  *= require_self
  */

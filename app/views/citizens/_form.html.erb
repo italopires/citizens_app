@@ -1,0 +1,23 @@
+<div class="pmd-card pmd-z-depth pmd-card-custom-form">
+  <div class="pmd-card-body">
+    <%= simple_form_for @object do |f| %>
+      <%= f.input :full_name, input_html: { class: 'form-control' } %>
+
+      <%= f.input :cpf, input_html: { class: 'form-control' } %>
+
+      <%= f.input :email, input_html: { class: 'form-control' } %>
+
+      <%= f.input :birthdate, as: :string, input_html: { class: 'form-control datepicker',
+        value: "#{ l f.object.birthdate if f.object.birthdate.present?}" } %>
+
+      <%= f.input :phone, input_html: { class: 'form-control' } %>
+
+      <%= f.input :status, as: :boolean, label_html: { class: 'pmd-checkbox pmd-checkbox-ripple-effect' }%>
+
+      <%= render 'layouts/common/buttons/back',
+                 link: citizens_path %>
+
+      <%= render 'layouts/common/buttons/submit' %>
+    <% end %>
+  </div>
+</div>
