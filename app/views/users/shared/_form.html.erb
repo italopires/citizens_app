@@ -1,0 +1,90 @@
+<%= flash[:alert].html_safe if flash[:alert].present? %>
+<div class="login-card" style="<%= devise_sign_in? %>">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="pmd-card-title card-header-border text-center">
+      <div class="loginlogo">
+        <a href="javascript:void(0);"><%= image_tag 'om30.png', alt: 'logo', width: "200" %></a>
+      </div>
+      <h3></h3>
+    </div>
+
+    <div class="pmd-card-body">
+      <div class="alert alert-success" role="alert"> Oh snap! Change a few things up and try submitting again. </div>
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :email, class: 'control-label pmd-input-group-label' %><br />
+
+        <div class="input-group">
+          <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
+          <%= f.text_field :email, class: 'form-control', autofocus: true, autocomplete: "login" %>
+        </div>
+      </div>
+
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :password, class: 'control-label pmd-input-group-label' %><br />
+        <div class="input-group">
+          <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
+          <%= f.password_field :password, class: 'form-control', autocomplete: "current-password" %>
+        </div>
+      </div>
+    </div>
+    <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
+      <div class="form-group clearfix">
+        <% if devise_mapping.rememberable? %>
+          <div class="checkbox pull-left">
+
+            <%= f.label :remember_me, class: 'pmd-checkbox checkbox-pmd-ripple-effect' do %>
+              <%= f.check_box :remember_me, class: 'pmd-checkbox' %>
+              <span class="pmd-checkbox"> Lembrar-me</span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= f.submit "Entrar", class: 'btn pmd-ripple-effect btn-primary btn-block' %>
+
+      <p class="redirection-link">Não tem uma conta? <a href="javascript:void(0);" class="login-register">Cadastre-se</a>. </p>
+
+      <p class="redirection-link"></p>
+    </div>
+  <% end %>
+</div>
+<div class="register-card" style="<%= devise_sign_up? %>">
+  <div class="pmd-card-title card-header-border text-center">
+    <div class="loginlogo">
+      <a href="javascript:void(0);"><%= image_tag 'om30.png', alt: 'logo', width: "200" %></a>
+    </div>
+    <h3>Cadastre-se <span>para uma vida mais <strong>PRODUTIVA</strong></span></h3>
+  </div>
+  <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name)) do |f| %>
+    <div class="pmd-card-body">
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :email, class: 'control-label pmd-input-group-label' %><br />
+
+        <div class="input-group">
+          <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
+          <%= f.text_field :email, class: 'form-control', autofocus: true, autocomplete: "login" %>
+        </div>
+      </div>
+
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :password, class: 'control-label pmd-input-group-label' %><br />
+        <div class="input-group">
+          <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
+          <%= f.password_field :password, class: 'form-control', autocomplete: "current-password" %>
+        </div>
+      </div>
+
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :password_confirmation, class: 'control-label pmd-input-group-label' %><br />
+        <div class="input-group">
+          <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
+          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "current-password" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
+      <%= f.submit "Cadastrar", class: 'btn pmd-ripple-effect btn-primary btn-block' %>
+      <p class="redirection-link">Já tem uma conta? <a href="javascript:void(0);" class="register-login">Faça login</a>. </p>
+    </div>
+  <% end %>
+</div>

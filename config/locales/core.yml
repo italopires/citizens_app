@@ -1,0 +1,11 @@
+pt-BR:
+  core:
+    empty: 'Nenhum registro encontrado'
+    buttons:
+      add_button: 'Adicionar %{model}'
+      save: 'Salvar'
+      cancel: 'Cancelar'
+    links:
+      actions:
+        title: 'Ações'
+        back: 'Voltar'
