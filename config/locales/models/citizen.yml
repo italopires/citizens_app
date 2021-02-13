@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       citizen:
-        one: 'Cidadão'
-        other: 'Cidadões'
+        one: 'Munícipe'
+        other: 'Munícipes'
     attributes:
       citizen:
         full_name: 'Nome Completo'
