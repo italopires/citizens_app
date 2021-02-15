@@ -1,5 +1,6 @@
 class Citizen < ApplicationRecord
   belongs_to :user
+  belongs_to :state
   has_one :address
 
   accepts_nested_attributes_for :address
