@@ -7,7 +7,7 @@ class Citizen < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
-  validates :full_name, :email, :birthdate, :phone, :picture_file, :city_id, :state_id, presence: true
+  validates :full_name, :email, :cpf, :birthdate, :phone, :picture_file, :city_id, :state_id, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
   validate :cpf_validator
 
@@ -20,8 +20,8 @@ class Citizen < ApplicationRecord
   private
 
   def cpf_validator
-    return if CPF.valid?(cpf)
+    return if cpf.blank? || CPF.valid?(cpf)
 
-    errors.add(:cpf, "CPF é inválido")
+    errors.add(:cpf, I18n.t('errors.messages.invalid'))
   end
 end
