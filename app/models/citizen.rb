@@ -7,7 +7,7 @@ class Citizen < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
-  validates :full_name, :email, :birthdate, :phone, :picture_file, presence: true
+  validates :full_name, :email, :birthdate, :phone, :picture_file, :city_id, :state_id, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
   validate :cpf_validator
 
