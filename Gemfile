@@ -40,6 +40,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'cpf_cnpj'
+gem 'carrierwave', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

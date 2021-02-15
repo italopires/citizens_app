@@ -12,6 +12,14 @@
 
       <%= f.input :phone, input_html: { class: 'form-control phone' } %>
 
+      <%= f.input :picture_file, as: :file, input_html: { class: 'form-control' } %>
+
+      <% if @object.picture_file.present? %>
+        <%= link_to @object.picture_file.url, target: "_blank" do %>
+          <span class="glyphicon glyphicon-cloud-download icon-download" aria-hidden="true"></span>
+        <% end %>
+      <% end %>
+
       <%= f.input :status, as: :boolean, label_html: { class: 'pmd-checkbox pmd-checkbox-ripple-effect' }%>
 
       <%= render 'layouts/common/buttons/back',

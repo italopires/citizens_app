@@ -3,6 +3,8 @@ class Citizen < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
   validate :cpf_validator
 
+  mount_uploader :picture_file, CitizenUploader
+
   def cpf=(cpf)
     write_attribute(:cpf, CPF.new(cpf).stripped)
   end
