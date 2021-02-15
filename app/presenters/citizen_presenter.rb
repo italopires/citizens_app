@@ -9,6 +9,6 @@ class CitizenPresenter
   end
 
   def ransack
-    @ransack ||= Citizen.all.ransack(@params)
+    @ransack ||= @user.citizens.ransack(@params)
   end
 end

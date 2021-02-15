@@ -13,7 +13,7 @@ class CitizensController < BaseController
   def permitted_params
     params.require(:citizen).permit(:full_name, :cpf, :email, :birthdate, :phone, :status, :picture_file,
                                     address_attributes: [:id, :zipcode, :public_place, :district, :ibge_code,
-                                    :complement])
+                                    :complement]).merge!(user_id: current_user.id)
   end
 
   def after_save_path
