@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_182036) do
+ActiveRecord::Schema.define(version: 2021_02_15_182331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2021_02_15_182036) do
     t.index ["citizen_id"], name: "index_addresses_on_citizen_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
   create_table "citizens", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "cpf", null: false
@@ -37,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_182036) do
     t.string "picture_file"
     t.bigint "user_id"
     t.bigint "state_id"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_citizens_on_city_id"
     t.index ["state_id"], name: "index_citizens_on_state_id"
     t.index ["user_id"], name: "index_citizens_on_user_id"
   end
@@ -60,6 +70,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_182036) do
   end
 
   add_foreign_key "addresses", "citizens"
+  add_foreign_key "cities", "states"
+  add_foreign_key "citizens", "cities"
   add_foreign_key "citizens", "states"
   add_foreign_key "citizens", "users"
 end
