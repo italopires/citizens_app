@@ -4,7 +4,7 @@ $(document).ready(function() {
     if (state_id != '') {
       $.ajax({
         type: 'GET',
-        url: `/api/v1/states/${state_id}/cities/`,
+        url: "/api/v1/states/"+state_id+"/cities/",
         dataType: 'json',
         success: function (data) {
           city_field = $('#citizen_city_id')
