@@ -34,4 +34,4 @@ pt-BR:
       should_be_strength: deve ter no mínimo 8 caracteres, com pelo menos 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial.
       has_been_used_previously: já foi usada anteriormente.
       greater_than_or_equal_to_current_date: deve ser maior ou igual à %{current_date}
-
+      extension_whitelist_error: 'permitido apenas os formatos jpg, jpeg, gif, png'
