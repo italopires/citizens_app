@@ -6,5 +6,7 @@ FactoryBot.define do
     birthdate { FFaker::Time.date }
     phone { FFaker::PhoneNumberBR.phone_number }
     status { true }
+    city
+    state
   end
 end
