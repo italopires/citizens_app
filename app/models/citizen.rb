@@ -1,5 +1,9 @@
 class Citizen < ApplicationRecord
-  validates :full_name, :email, :birthdate, :phone, presence: true
+  has_one :address
+
+  accepts_nested_attributes_for :address
+
+  validates :full_name, :email, :birthdate, :phone, :picture_file, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
   validate :cpf_validator
 
@@ -8,6 +12,8 @@ class Citizen < ApplicationRecord
   def cpf=(cpf)
     write_attribute(:cpf, CPF.new(cpf).stripped)
   end
+
+  private
 
   def cpf_validator
     return if CPF.valid?(cpf)
