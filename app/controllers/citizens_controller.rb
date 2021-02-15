@@ -1,4 +1,8 @@
 class CitizensController < BaseController
+  def index
+    @citizen_presenter = CitizenPresenter.new(user: current_user, params: params[:q])
+  end
+
   def new
     @object = object_class.new
     @object.build_address

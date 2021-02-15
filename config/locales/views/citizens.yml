@@ -1,0 +1,5 @@
+pt-BR:
+  citizens:
+    index:
+      filters: Filtros
+      all: Todos

@@ -1,0 +1,82 @@
+<div class="panel-group pmd-accordion" id="accordion" role="tablist" aria-multiselectable="true" >
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title"> <a  data-toggle="collapse" data-parent="#accordion" href="#auditAccessFilterCollapse" aria-expanded="true" aria-controls="auditAccessFilterCollapse" data-expandable="true">
+        <%= t 'citizens.index.filters' %><i class="material-icons md-dark pmd-sm pmd-accordion-arrow">keyboard_arrow_down</i></a>
+      </h4>
+    </div>
+    <div id="auditAccessFilterCollapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <%= search_form_for @citizen_presenter.ransack, url: citizens_path, method: :get, class: 'form-horizontal' do |f| %>
+          <div class="row">
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :full_name_cont, Citizen.human_attribute_name(:full_name) %>
+              <%= f.text_field :full_name_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :email_cont, Citizen.human_attribute_name(:email) %>
+              <%= f.text_field :email_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :birthdate_eq, Citizen.human_attribute_name(:birthdate) %>
+              <%= f.text_field :birthdate_eq, class: 'form-control', :autocomplete => :off,
+                               value: params[:q].present? ? params[:q][:birthdate_eq] : '' %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :cpf_cont, Citizen.human_attribute_name(:cpf) %>
+              <%= f.text_field :cpf_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :phone_cont, Citizen.human_attribute_name(:phone) %>
+              <%= f.text_field :phone_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :status_in, Citizen.human_attribute_name(:status) %>
+              <%= f.select :status_in, options_for_select([['Ativo', true], ['Inativo', false]],
+                           selected: f.object.status_in), { include_blank: 'Todas'}, { class: 'form-control' } %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :address_zipcode_cont, Address.human_attribute_name(:zipcode) %>
+              <%= f.text_field :address_zipcode_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :address_public_place_cont, Address.human_attribute_name(:public_place) %>
+              <%= f.text_field :address_public_place_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :address_complement_cont, Address.human_attribute_name(:complement) %>
+              <%= f.text_field :address_complement_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :address_district_cont, Address.human_attribute_name(:district) %>
+              <%= f.text_field :address_district_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+
+            <div class="col-md-3 form-group pmd-textfield">
+              <%= f.label :address_ibge_code_cont, Address.human_attribute_name(:ibge_code) %>
+              <%= f.text_field :address_ibge_code_cont, class: 'form-control', :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <%= f.submit t('buttons.filter'), class: 'btn btn-info pmd-btn-raised pmd-ripple-effect hidden-print' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

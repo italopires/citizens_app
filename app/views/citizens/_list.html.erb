@@ -12,7 +12,7 @@
     </tr>
     </thead>
     <tbody>
-    <% if @objects.each do |object| %>
+    <% if @citizen_presenter.searched_citizens.each do |object| %>
       <tr>
         <td><%= object.full_name %></td>
         <td><%= object.cpf %></td>
