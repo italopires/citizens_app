@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 
   resources :citizens, except: :show
   root to: 'citizens#index'
+
+  namespace :api do
+    namespace :v1 do
+      get 'inss_calculator', controller: :inss_calculators, action: :calculate
+      resources :states, only: [] do
+        resources :cities, only: :index
+      end
+    end
+  end
 end

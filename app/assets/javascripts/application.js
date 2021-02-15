@@ -18,4 +18,4 @@
 //= require propeller
 //= require jquery-mask/inputmask.js
 //= require jquery-mask/inputmask.date.extensions.js
-//= require_tree ./commons
+//= require_tree .
