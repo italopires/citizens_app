@@ -15,8 +15,17 @@
       <%= f.input :picture_file, as: :file, input_html: { class: 'form-control' } %>
 
       <% if @object.picture_file.present? %>
+        <%= link_to @object.picture_file.url, target: "_blank" do %>
+          <span class="glyphicon glyphicon-cloud-download icon-download" aria-hidden="true">Original</span>
+        <% end %>
+        <%= link_to @object.picture_file.thumb.url, target: "_blank" do %>
+          <span class="glyphicon glyphicon-cloud-download icon-download" aria-hidden="true">Pequeno</span>
+        <% end %>
+        <%= link_to @object.picture_file.medium.url, target: "_blank" do %>
+          <span class="glyphicon glyphicon-cloud-download icon-download" aria-hidden="true">Médio</span>
+        <% end %>
         <%= link_to @object.picture_file.large.url, target: "_blank" do %>
-          <span class="glyphicon glyphicon-cloud-download icon-download" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-cloud-download icon-download" aria-hidden="true">Grande</span>
         <% end %>
       <% end %>
 
