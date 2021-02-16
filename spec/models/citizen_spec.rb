@@ -14,6 +14,40 @@ RSpec.describe Citizen do
     it { is_expected.to validate_presence_of :phone }
     it { is_expected.to validate_presence_of :picture_file }
 
+    context 'when is there Citizen with same email' do
+      let(:citizen) { create(:citizen) }
+
+      subject { described_class.new email: citizen.email }
+
+      it { is_expected.to validate_uniqueness_of :email }
+    end
+
+    context 'when is there Citizen with same cpf' do
+      let!(:citizen) { create(:citizen) }
+
+      subject { described_class.new cpf: cpf }
+
+      context 'when cpf already exists' do
+        let!(:cpf) { citizen.cpf }
+
+        it 'returns error' do
+          subject.valid?
+
+          expect(subject.errors[:cpf]).to contain_exactly 'já está em uso'
+        end
+      end
+
+      context 'when cpf already exists' do
+        let(:cpf) { '98636771080' }
+
+        it 'returns error' do
+          subject.valid?
+
+          expect(subject.errors[:cpf]).to be_empty
+        end
+      end
+    end
+
     describe 'email format' do
       context 'when email format is valid' do
         subject { described_class.new(email: 'email@email.com') }

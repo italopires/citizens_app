@@ -5,8 +5,9 @@ class Citizen < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
-  validates :full_name, :email, :cpf, :birthdate, :phone, :picture_file, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
+  validates :full_name, :birthdate, :phone, :picture_file, presence: true
+  validates :cpf, presence: true, uniqueness: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
   validate :cpf_validator
 
   mount_uploader :picture_file, CitizenUploader
