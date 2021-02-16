@@ -91,4 +91,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'om30-citizen-app.herokuapp.com' }
+
+  ActionMailer::Base.smtp_settings = {
+      address:        'smtp.mailgun.org',
+      port:           '587',
+      authentication: :plain,
+      domain: 'om30-citizen-app.herokuapp.com',
+      user_name:      ENV['SENDGRID_USERNAME'],
+      password:       ENV['SENDGRID_PASSWORD'],
+      enable_starttls_auto: true
+  }
 end
