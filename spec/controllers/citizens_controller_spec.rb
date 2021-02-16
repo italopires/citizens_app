@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe CitizensController do
   let!(:user) { create(:user) }
-  let!(:citizen1) { create(:citizen) }
+  let!(:citizen1) { create(:citizen, user: user) }
 
   before { sign_in user }
 
   describe 'GET #index' do
-    let!(:citizen2) { create(:citizen) }
+    let!(:citizen2) { create(:citizen, user: user) }
 
     before { get :index }
 
     it 'assigns objects' do
-      expect(assigns(:objects)).to contain_exactly citizen1, citizen2
+      expect(assigns(:citizen_presenter).searched_citizens).to contain_exactly citizen1, citizen2
     end
   end
 

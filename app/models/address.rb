@@ -1,3 +1,7 @@
 class Address < ApplicationRecord
-  validates :zipcode, :public_place, :district, presence: true
+  belongs_to :state
+  belongs_to :city
+  belongs_to :citizen
+
+  validates :zipcode, :public_place, :district, :city_id, :state_id, presence: true
 end

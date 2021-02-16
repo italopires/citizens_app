@@ -11,3 +11,5 @@ pt-BR:
         district: Bairro
         ibge_code: Código IBGE
         complement: Complemento
+        city_id: Cidade
+        state_id: Estado

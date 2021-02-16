@@ -1,13 +1,11 @@
 class Citizen < ApplicationRecord
   belongs_to :user
-  belongs_to :state
-  belongs_to :city
 
-  has_one :address
+  has_one :address, dependent: :destroy
 
   accepts_nested_attributes_for :address
 
-  validates :full_name, :email, :cpf, :birthdate, :phone, :picture_file, :city_id, :state_id, presence: true
+  validates :full_name, :email, :cpf, :birthdate, :phone, :picture_file, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
   validate :cpf_validator
 

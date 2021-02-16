@@ -6,7 +6,7 @@ FactoryBot.define do
     birthdate { FFaker::Time.date }
     phone { FFaker::PhoneNumberBR.phone_number }
     status { true }
-    city
-    state
+    user
+    picture_file { Rack::Test::UploadedFile.new(File.join("#{Rails.root}/spec/fixtures/om30.png")) }
   end
 end

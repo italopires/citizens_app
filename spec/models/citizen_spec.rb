@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe Citizen do
   context 'relationship' do
     it { is_expected.to belong_to(:user) }
-    it { is_expected.to belong_to(:state) }
-    it { is_expected.to belong_to(:city) }
-    it { is_expected.to have_one(:address) }
+    it { is_expected.to have_one(:address).dependent(:destroy) }
   end
 
   context 'validations' do
@@ -15,8 +13,6 @@ RSpec.describe Citizen do
     it { is_expected.to validate_presence_of :birthdate }
     it { is_expected.to validate_presence_of :phone }
     it { is_expected.to validate_presence_of :picture_file }
-    it { is_expected.to validate_presence_of :city_id }
-    it { is_expected.to validate_presence_of :state_id }
 
     describe 'email format' do
       context 'when email format is valid' do
@@ -31,6 +27,7 @@ RSpec.describe Citizen do
 
       context 'when email format is invalid' do
         subject { described_class.new(email: 'email@.com') }
+
         it 'has error to email' do
           subject.valid?
 
@@ -62,7 +59,7 @@ RSpec.describe Citizen do
     end
   end
 
-  describe 'nested_atributes' do
+  describe 'nested_attributes' do
     it { is_expected.to accept_nested_attributes_for(:address) }
   end
 

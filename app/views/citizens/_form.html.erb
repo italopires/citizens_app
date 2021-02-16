@@ -12,11 +12,7 @@
 
       <%= f.input :phone, as: :string, input_html: { class: 'form-control phone' } %>
 
-      <%= f.input :state_id, as: :select, collection: @states,
-                        input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } %>
 
-      <%= f.input :city_id, collection: @cities, include_blank: true,
-                  selected: f.object.city_id, input_html: { class: 'form-control', data: { selected: f.object.city_id } }, wrapper_html: { class: 'form-group' } %>
 
       <%= f.input :picture_file, as: :file, input_html: { class: 'form-control' } %>
       <% if @object.picture_file.present? %>
@@ -35,6 +31,14 @@
       <% end %>
 
       <%= f.simple_fields_for :address do |address|  %>
+        <%= address.input :state_id, as: :select, collection: @states,
+                    input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } %>
+
+        <%= address.input :city_id, collection: @cities, include_blank: true,
+                    selected: address.object.city_id, wrapper_html: { class: 'form-group' },
+                    input_html: { class: 'form-control',
+                    data: { selected: address.object.city_id } } %>
+
         <%= address.input :zipcode, as: :string, input_html: { class: 'form-control zipcode' } %>
 
         <%= address.input :district, as: :string, input_html: { class: 'form-control' } %>
