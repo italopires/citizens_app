@@ -10,7 +10,7 @@ RSpec.feature 'Citizens' do
 
   before { login_as user }
 
-  scenario 'create, update and destroy a citizen', xhr: true do
+  scenario 'create, update, destroy and search a citizen' do
     visit citizens_path
 
     click_link 'Munícipes'
@@ -51,6 +51,17 @@ RSpec.feature 'Citizens' do
     expect(page).to have_content 'Munícipe 2'
     expect(page).to have_content 'email2@email.com'
     expect(page).to have_content I18n.l(Date.current.advance(months: -24))
+
+    fill_in Citizen.human_attribute_name('birthdate'), with: I18n.l(Date.current.advance(months: -24))
+    click_button 'Pesquisar'
+    expect(page).to have_content 'Munícipe 2'
+
+    fill_in Citizen.human_attribute_name('birthdate'), with: I18n.l(Date.current.advance(months: -1))
+    click_button 'Pesquisar'
+    expect(page).not_to have_content 'Munícipe 2'
+
+    fill_in Citizen.human_attribute_name('birthdate'), with: ''
+    click_button 'Pesquisar'
 
     accept_confirm { find('#destroy').click }
 
