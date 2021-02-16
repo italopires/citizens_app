@@ -3,7 +3,7 @@ FactoryBot.define do
     full_name { FFaker::NameBR.name }
     cpf { FFaker::IdentificationBR.cpf }
     email { FFaker::Internet.email }
-    birthdate { FFaker::Time.date }
+    birthdate { Date.current.advance(days: -1) }
     phone { FFaker::PhoneNumberBR.phone_number }
     status { true }
     user

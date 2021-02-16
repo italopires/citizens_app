@@ -33,14 +33,14 @@ RSpec.describe Citizen do
         it 'returns error' do
           subject.valid?
 
-          expect(subject.errors[:cpf]).to contain_exactly 'já está em uso'
+          expect(subject.errors[:cpf]).to contain_exactly 'Já está em uso'
         end
       end
 
       context 'when cpf already exists' do
         let(:cpf) { '98636771080' }
 
-        it 'returns error' do
+        it 'does not returns error' do
           subject.valid?
 
           expect(subject.errors[:cpf]).to be_empty
@@ -65,14 +65,16 @@ RSpec.describe Citizen do
         it 'has error to email' do
           subject.valid?
 
-          expect(subject.errors[:email]).to eq [I18n.t('errors.messages.invalid')]
+          expect(subject.errors[:email]).to contain_exactly I18n.t('errors.messages.invalid')
         end
       end
     end
 
-    describe 'cpf_validator' do
+    describe 'valid_cpf' do
+      subject { described_class.new(cpf: cpf) }
+
       context 'when cpf is valid' do
-        subject { described_class.new(cpf: '13891931018') }
+        let(:cpf) { '13891931018' }
 
         it 'does not have error to cpf' do
           subject.valid?
@@ -82,12 +84,35 @@ RSpec.describe Citizen do
       end
 
       context 'when cpf is invalid' do
-        subject { described_class.new(cpf: '13891931017') }
+        let(:cpf) { '13891931017' }
 
         it 'returns custom validation error' do
           subject.valid?
 
-          expect(subject.errors[:cpf]).to eq [I18n.t('errors.messages.invalid')]
+          expect(subject.errors[:cpf]).to contain_exactly I18n.t('errors.messages.invalid')
+        end
+      end
+    end
+
+    describe 'valid_birthdate' do
+      subject { described_class.new(birthdate: birthdate) }
+
+      context 'when birthdate is valid' do
+        let(:birthdate) { Date.current.advance(days: -1) }
+
+        it 'does not have error to birthdate' do
+          subject.valid?
+
+          expect(subject.errors[:birthdate]).to be_empty
+        end
+      end
+
+      context 'when birthdate is invalid' do
+        let(:birthdate) { Date.current }
+        it '' do
+          subject.valid?
+
+          expect(subject.errors[:birthdate]).to contain_exactly "Data deve ser anterior à atual"
         end
       end
     end
