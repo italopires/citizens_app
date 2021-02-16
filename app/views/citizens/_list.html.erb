@@ -15,7 +15,7 @@
     <% if @citizen_presenter.searched_citizens.each do |object| %>
       <tr>
         <td><%= object.full_name %></td>
-        <td><%= object.cpf %></td>
+        <td><%= CPF.new(object.cpf).formatted %></td>
         <td><%= object.email %></td>
         <td><%= l object.birthdate %></td>
         <td><%= object.phone %></td>
