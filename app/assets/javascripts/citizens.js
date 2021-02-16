@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#citizen_address_attributes_state_id').on('change', function () {
-    const state_id = $(this).val()
+    var state_id = $(this).val()
     if (state_id != '') {
       $.ajax({
         type: 'GET',
