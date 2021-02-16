@@ -11,6 +11,14 @@ class CitizensController < BaseController
     @object.build_address
   end
 
+  def create
+    super { CreatedCitizenMailer.update_citizen_status(@object).deliver_now }
+  end
+
+  def update
+    super { UpdateCitizenEmailGenerator.perform(citizen: @object) }
+  end
+
   private
 
   def permitted_params

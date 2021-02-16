@@ -11,6 +11,8 @@ class BaseController < ApplicationController
     @object = object_class.new permitted_params
 
     if @object.save
+      yield if block_given?
+
       redirect_to after_save_path, notice: t('notices.created', model: object_class.model_name.human)
     else
       render :new
@@ -25,6 +27,8 @@ class BaseController < ApplicationController
     @object = object_class.find params[:id]
 
     if @object.update(permitted_params)
+      yield if block_given?
+
       redirect_to after_save_path, notice: t('notices.updated', model: object_class.model_name.human)
     else
       render :edit
