@@ -96,7 +96,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'om30-citizen-app.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
-      address:        'smtp.mailgun.org',
+      address:        'smtp.sendgrid.net',
       port:           '587',
       authentication: :plain,
       domain: 'om30-citizen-app.herokuapp.com',
