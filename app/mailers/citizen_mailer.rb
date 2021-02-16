@@ -6,11 +6,11 @@ class CitizenMailer < ApplicationMailer
 
   def update_citizen_status(citizen)
     @citizen = citizen
-    mail(to: [@citizen.email], subject: "Alteração de Status do Munícipe - OM30")
+    mail(to: [@citizen.email], subject: "Atualização do Status do Munícipe - OM30")
   end
 
   def update_citizen(citizen)
     @citizen = citizen
-    mail(to: [@citizen.email], subject: "Alteração de Status do Munícipe - OM30")
+    mail(to: [@citizen.email], subject: "Atualização dos Dados do Munícipe - OM30")
   end
 end

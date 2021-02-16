@@ -8,8 +8,14 @@ class UpdateCitizenEmailGenerator
   end
 
   def perform
-    return CitizenMailer.update_citizen_status(@citizen).deliver_now if @citizen.status_before_last_save.present?
+    return CitizenMailer.update_citizen_status(@citizen).deliver_now if status_changed?
 
     CitizenMailer.update_citizen(@citizen).deliver_now
+  end
+
+  private
+
+  def status_changed?
+    status_changed ||= @citizen.status_before_last_save.present? && @citizen.status != @citizen.status_before_last_save
   end
 end
