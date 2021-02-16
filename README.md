@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a CRUD application for citizens. With sending emails when 
+the user is registered and changed.
 
-Things you may want to cover:
+## Access the below link to try the application
+Create a user to use the application:
 
-* Ruby version
+https://om30-citizen-app.herokuapp.com/
 
-* System dependencies
 
-* Configuration
+## Dependencies
+* rails 5.2.4.5
+* ruby 2.6.6
 
-* Database creation
+## Task for initial development setup
 
-* Database initialization
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* How to run the test suite
+## Start rails server
+```
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## To run the tests, execute the bellow command
+```
+rspec
+```
