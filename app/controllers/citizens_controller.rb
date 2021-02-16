@@ -12,7 +12,7 @@ class CitizensController < BaseController
   end
 
   def create
-    super { CreatedCitizenMailer.update_citizen_status(@object).deliver_now }
+    super { CitizenMailer.new_citizen(@object).deliver_now }
   end
 
   def update
