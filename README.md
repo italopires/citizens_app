@@ -5,6 +5,7 @@ the user is registered and changed.
 
 ## Access the below link to try the application
 Create a user to use the application:
+* PS: The emails sent can be in your spam box
 
 https://om30-citizen-app.herokuapp.com/
 
