@@ -13,5 +13,6 @@ test:
 
 production:
   <<: *default
-  database: municipe_app_production
+  database: <%= ENV['MUNICIPE_APP_DATABASE_DATABASE'] %>
   username: <%= ENV['MUNICIPE_APP_DATABASE_USERNAME'] %>
+  password: <%= ENV['MUNICIPE_APP_DATABASE_PASSWORD'] %>
