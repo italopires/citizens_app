@@ -39,6 +39,12 @@ $ git clone git@github.com:italopires/citizens_app.git
 $ cd citizens_app
 ```
 
+### Set environment variables
+Using [dotenv](https://github.com/bkeepers/dotenv)
+```
+cp .env.docker.sample .env
+```
+
 Up Docker container.
 
 ```console
@@ -80,7 +86,7 @@ bundle
 ### Set environment variables
 Using [dotenv](https://github.com/bkeepers/dotenv)
 ```
-cp .env.sample .env
+cp .env.local.sample .env
 ```
 
 ### Task for initial development setup
@@ -93,7 +99,7 @@ rails db:seed
 
 ### Start rails server
 ```
-rails s
+rails s -b 0.0.0.0 -p 3000
 ```
 
 ### To run the tests, execute the command bellow
