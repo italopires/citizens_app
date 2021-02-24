@@ -11,11 +11,10 @@ https://om30-citizen-app.herokuapp.com/
 
 ### Ruby on Rails
 This application requires:
-* rails 5.2.4.5
 * ruby 2.6.6
 
 ### Database
-Thist application uses Postgresql with ActiveRecord
+This application uses Postgresql 12.1 with ActiveRecord
 
 ### Development
 * Template Engine: ERB
@@ -26,7 +25,46 @@ Thist application uses Postgresql with ActiveRecord
 ### Email
 The application is configured to send email using Sendgrid Account
 
-### Install RVM and Ruby
+## Docker Deploy
+You need followings:
+- Docker installed
+
+Learn more about [Docker Setup](https://docs.docker.com/desktop/)
+
+### Try this example
+Clone this repository.
+
+```console
+$ git clone git@github.com:italopires/citizens_app.git
+$ cd citizens_app
+```
+
+Up Docker container.
+
+```console
+$ docker-compose up
+```
+
+Open another console and run this to initialize database.
+
+```console
+$ cd citizens_app
+$ docker-compose exec rails rake db:create db:migrate db:seed
+```
+
+Open in browser.
+
+- [`http://localhost:3000/`](http://localhost:3000/)
+
+To stop, in the console where `docker-compose` is running, hit `Ctrl + C` and wait.
+
+```console
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping citizens_app_rails_1   ... done
+Stopping citizens_app_db_1      ... done
+```
+
+## Deploy local through RVM and Ruby
 ```
 rvm install 2.6.6
 ```
@@ -39,10 +77,9 @@ gem install bundler
 bundle
 ```
 
-### Set environment variables and database.yml
+### Set environment variables
 Using [dotenv](https://github.com/bkeepers/dotenv)
 ```
-cp config/database.yml.sample config/database.yml
 cp .env.sample .env
 ```
 
