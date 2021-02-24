@@ -45,17 +45,18 @@ Using [dotenv](https://github.com/bkeepers/dotenv)
 cp .env.docker.sample .env
 ```
 
-Up Docker container.
+Build and Up Docker container.
 
 ```console
-$ docker-compose up
+docker-compose build
+docker-compose up
 ```
 
 Open another console and run this to initialize database.
 
 ```console
-$ cd citizens_app
-$ docker-compose exec rails rake db:create db:migrate db:seed
+cd citizens_app
+docker exec -it municipe_app_app_1 bundle exec db:create db:migrate db:seed
 ```
 
 Open in browser.
