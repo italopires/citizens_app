@@ -6,7 +6,7 @@ RSpec.describe Api::V1::CitiesController, type: :controller do
 
   before { sign_in user }
 
-  describe 'GET#calculate' do
+  describe 'GET #index' do
     let!(:state1) { create(:state, name: 'State1') }
     let!(:state2) { create(:state, name: 'State2') }
     let!(:city1) { create(:city, name: 'City1', state: state1) }

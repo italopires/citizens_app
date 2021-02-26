@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_125911) do
+ActiveRecord::Schema.define(version: 2021_02_23_175435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,11 @@ ActiveRecord::Schema.define(version: 2021_02_16_125911) do
     t.bigint "state_id"
     t.index ["citizen_id"], name: "index_addresses_on_citizen_id"
     t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["district"], name: "index_addresses_on_district"
+    t.index ["ibge_code"], name: "index_addresses_on_ibge_code"
+    t.index ["public_place"], name: "index_addresses_on_public_place"
     t.index ["state_id"], name: "index_addresses_on_state_id"
+    t.index ["zipcode"], name: "index_addresses_on_zipcode"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -34,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_125911) do
     t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_cities_on_name"
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
@@ -48,6 +53,9 @@ ActiveRecord::Schema.define(version: 2021_02_16_125911) do
     t.datetime "updated_at", null: false
     t.string "picture_file"
     t.bigint "user_id"
+    t.index ["cpf"], name: "index_citizens_on_cpf"
+    t.index ["email"], name: "index_citizens_on_email"
+    t.index ["full_name"], name: "index_citizens_on_full_name"
     t.index ["user_id"], name: "index_citizens_on_user_id"
   end
 
@@ -55,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_125911) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_states_on_name"
   end
 
   create_table "users", force: :cascade do |t|
