@@ -55,8 +55,7 @@ docker-compose up
 Open another console and run this to initialize database.
 
 ```console
-cd citizens_app
-docker exec -it municipe_app_app_1 bundle exec db:create db:migrate db:seed
+docker exec -it citizens_app_app_1 bundle exec rails db:create db:migrate db:seed
 ```
 
 Open in browser.
