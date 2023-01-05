@@ -24,7 +24,8 @@ RUN apk add --update --no-cache \
       pkgconfig \
       postgresql-dev \
       python3 \
-      tzdata
+      tzdata \
+      shared-mime-info
 RUN gem install bundler -v 2.0.2
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
